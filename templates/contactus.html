@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    
+</head>
+<style>
+        body {
+           background-image: url('./../static/registeration.jpg');
+           height: 100%; 
+           background-position: center;
+           background-repeat: no-repeat;
+           background-size: cover;
+        }
+
+        main {
+            flex: 1;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        footer {
+            flex-shrink: 0;
+            background-color: #333; /* Change the background color of the footer as needed */
+            color: #fff; /* Change the text color of the footer as needed */
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25%;
+        }
+
+    .maind {
+      margin-top: 100px;
+	  padding: 10px;
+	  background-color: rgba(255, 255, 255, 0.6); /* Adjust the alpha value to control content background transparency */
+	  backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+	  border-radius: 10px;
+	  max-width: 1000px;
+	  max-height: 80%;
+	  overflow-y: auto; /* Enable vertical scroll when content exceeds the viewport height */
+}
+
+    
+</style>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <ul class="navbar-nav">
+                    {% if login %}
+                    <!--if block html code-->
+                    
+                    {% else %}
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    <div class="container py-5">
+        <h2 class="mb-4">Contact Us</h2>
+        <form action="/send_email" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message:</label>
+                <textarea id="message" name="message" class="form-control" required></textarea>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    </main>
+
+    <footer class="footer-container bg-dark py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="text-white">About Us</h2>
+                    <a href="/works" class="text-white d-block">How it works</a>
+                    <a href="/inventors" class="text-white d-block">Inventors</a>
+                    <a href="/terms_of_services" class="text-white d-block">Terms of Service</a>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-white">Contact Us</h2>
+                    <a href="contactus" class="text-white d-block">Contact</a>
+                    <a href="support" class="text-white d-block">Support</a>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-white">Social Media</h2>
+                    <a href="https://www.instagram.com/emotiondetection" class="text-white d-block">Instagram</a>
+                    <a href="https://www.facebook.com/the.emotional.detective" class="text-white d-block">Facebook</a>
+                    <a href="https://twitter.com/ThinkEmotions" class="text-white d-block">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <!-- <div class="col-md-2">
+                    <a href="/" class="social-logo">
+                        <img src="./../static/logo.png" alt="emotion" class="img-fluid">
+                    </a>
+                </div> -->
+                <div class="col-md-6 text-center text-white">
+                    <small>Employee Emotion Detection © 2023</small>
+                </div>
+                <div class="col-md-4">
+                    <div class="social-icons d-flex justify-content-end">
+                        <a href="https://www.facebook.com/the.emotional.detective"
+                            class="social-icon-link facebook me-3">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/emotiondetection" class="social-icon-link instagram me-3">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/ThinkEmotions" class="social-icon-link twitter me-3">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

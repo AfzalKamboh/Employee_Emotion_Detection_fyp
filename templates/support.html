@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    
+</head>
+<style>
+body {
+	  background-image: url('./../static/background.jpg');
+	  height: 100%; 
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+	  padding: 0;
+	  background-attachment: fixed; 
+	  font-family: Arial, sans-serif;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            flex-shrink: 0;
+            background-color: #333; /* Change the background color of the footer as needed */
+            color: #fff; /* Change the text color of the footer as needed */
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 25%;
+        }
+
+    .maind {
+      margin-top: 100px;
+	  padding: 10px;
+	  background-color: rgba(255, 255, 255, 0.6); /* Adjust the alpha value to control content background transparency */
+	  backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+	  border-radius: 10px;
+	  max-width: 1000px;
+	  max-height: 80%;
+	  overflow-y: auto; /* Enable vertical scroll when content exceeds the viewport height */
+}
+a{
+            text-decoration: none;
+        }
+
+    
+</style>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <ul class="navbar-nav">
+                    {% if login %}
+                    <!--if block html code-->
+                    
+                    {% else %}
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container maind">
+            <div class="bgs py-3 px-2" style="font-family: Roboto, sans-serif;">
+                  <div class="bgs bg-dark text-white py-5">
+                  <div class="container text-center">
+                     <h1 class="mb-4">Welcome to our Customer Support Portal</h1>
+                     <p>Welcome to the customer support portal for facial emotion detection. Here you can find answers to
+                     frequently asked questions as well as contact information for our support team.</p>
+                     <p>We are always working to improve our facial emotion detection technology. By providing us with your data,
+                     you can help us to train our models to better understand the nuances of human emotion. Your data will be
+                     used anonymously and will not be shared with any third parties.</p>
+                     <p>Thank you for your help in making our facial emotion detection technology even better.</p>
+                     <h2>Contact Information</h2>
+                     <p>If you have any questions or problems with facial emotion detection, please contact our support team at
+                     <a href="mailto:ramsha.bscsf19@iba-suk.edu.pk" class="text-white">ramsha.bscsf19@iba-suk.edu.pk</a></p>
+                 </div>
+                 </div>
+            </div>
+          <div class="bgw"></div>
+        </div>
+    </main>
+
+    <footer class="footer-container bg-dark py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="text-white">About Us</h2>
+                    <a href="/works" class="text-white d-block">How it works</a>
+                    <a href="/inventors" class="text-white d-block">Inventors</a>
+                    <a href="/terms_of_services" class="text-white d-block">Terms of Service</a>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-white">Contact Us</h2>
+                    <a href="contactus" class="text-white d-block">Contact</a>
+                    <a href="support" class="text-white d-block">Support</a>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-white">Social Media</h2>
+                    <a href="https://www.instagram.com/emotiondetection" class="text-white d-block">Instagram</a>
+                    <a href="https://www.facebook.com/the.emotional.detective" class="text-white d-block">Facebook</a>
+                    <a href="https://twitter.com/ThinkEmotions" class="text-white d-block">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <!-- <div class="col-md-2">
+                    <a href="/" class="social-logo">
+                        <img src="./../static/logo.png" alt="emotion" class="img-fluid">
+                    </a>
+                </div> -->
+                <div class="col-md-6 text-center text-white">
+                    <small>Employee Emotion Detection © 2023</small>
+                </div>
+                <div class="col-md-4">
+                    <div class="social-icons d-flex justify-content-end">
+                        <a href="https://www.facebook.com/the.emotional.detective"
+                            class="social-icon-link facebook me-3">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/emotiondetection" class="social-icon-link instagram me-3">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/ThinkEmotions" class="social-icon-link twitter me-3">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

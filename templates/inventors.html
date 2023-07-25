@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventors</title>
+  <style>
+    /* Reset default margins and paddings */
+    body, h1, h2, h3, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+	  background-image: url('./../static/background.jpg');
+	  height: 100%; 
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+	  padding: 0;
+	  background-attachment: fixed; 
+	  font-family: Arial, sans-serif;
+        }
+
+    /* Add a box-sizing reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    body, html {
+    height: 70%;
+    margin: 0;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.team-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 600px; /* Optional: Adjust this value based on your design */
+}
+
+
+    header {
+      background-color: #333;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .bgs {
+      background-image: url('public/images.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-top: 60px;
+      padding-bottom: 60px;
+      text-align: center;
+    }
+
+    .h1 {
+      color: #ffffff;
+      font-size: 2.3rem;
+      text-align: left;
+      margin-left: 2rem;
+      line-height: 2.3rem;
+      margin-top: 1rem;
+    }
+
+    .team-item {
+      background: rgb(233, 156, 89);
+      text-align: center;
+      margin: 20px;
+      padding: 20px 20px 40px 40px;
+      border-radius: 8px;
+      transition: all 0.25s ease-in-out;
+    }
+
+    .team-item:hover {
+      background: rgb(64, 84, 100);
+      color: white;
+    }
+
+    .team-item h3 {
+      margin: 20px 0 1px 0;
+      color: #020212;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: all 0.25s ease-in-out;
+    }
+
+    .team-item:hover h3 {
+      color: #ffffff;
+    }
+
+    .team-info p {
+      color: #000;
+      font-style: italic;
+    }
+
+    .team-img {
+      max-width: 140px;
+      padding: 6px;
+      background-color: #acacac;
+      border-radius: 50%;
+    }
+
+    ul.team-icon {
+      margin-top: 25px;
+    }
+
+    ul.team-icon li {
+      display: inline-block;
+      margin: 0 3px;
+    }
+
+    ul.team-icon li a {
+      display: inline-block;
+      padding: 8px;
+      width: 34px;
+      height: 34px;
+      font-size: 18px;
+      line-height: 18px;
+      background-color: #000;
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .linkhover:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #333;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    footer ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    footer ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    footer ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-container {
+      background-color: #242424;
+      padding: 1rem 0 2rem 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-links {
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-link-wrapper {
+      display: flex;
+    }
+
+    .footer-link-items {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 10px;
+      text-align: left;
+      width: 150px;
+      box-sizing: border-box;
+    }
+
+    .footer-link-items h2 {
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .footer-link-items a {
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .footer-link-items a:hover {
+      color: #e9e9e9;
+      transition: 0.3s ease-out;
+    }
+
+    .footer-email-form h2 {
+      margin-bottom: 10px;
+    }
+
+    .footer-input::placeholder {
+      color: #b1b1b1;
+    }
+
+    /* Social Icons */
+    .social-icon-link {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .social-media {
+      max-width: 1000px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .social-media-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1000px;
+      margin: 10px auto 0 auto;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 240px;
+    }
+
+    .social-logo {
+      color: #fff;
+      justify-self: start;
+      margin-left: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .website-rights {
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .team-container {
+     display: flex; /* Use Flexbox */
+     justify-content: space-between; /* Adjust alignment as needed */
+    }
+
+  .team-item {
+  /* Your existing styles for the 'team-item' div here */
+    flex: 1; /* Allow each item to grow and take equal space */
+    max-width: 33%; /* Adjust this value based on the number of items you have */
+  }
+
+
+    @media screen and (max-width: 720px) {
+      .footer-links {
+        padding-top: 2rem;
+      }
+
+      .footer-input {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-link-wrapper {
+        flex-direction: column;
+      }
+
+      .social-media-wrap {
+        flex-direction: column;
+      }
+    }
+    
+    .team-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+a{
+            text-decoration: none;
+        }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="navbar-nav">
+        {% if login %}
+        <!--if block html code-->
+        
+        {% else %}
+        {% endif %}
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+    </ul>
+    </nav>
+  </header>
+  
+  <div class='center-container'>
+        <div class='team-item'>
+            <img src='./../static/sher.png' alt='sher' class='team-img'>
+            <h3>Dr. Sher Muhammad Daudpota</h3>
+            <div class='team-info'>
+                <p>Supervisor</p>
+                <p>He is presently serving as a Professor of Computer Science and Director of Quality Enhancement Cell at Sukkur
+                IBA University. He teaches Data Science, Machine Learning, Deep Learning, Natural Language Processing,
+                Artificial Intelligence (AI), and Programming Courses at Undergraduate and Post Graduate levels. He is also
+                serving as a Project Manager on the recently awarded five years' NORPART-CONNECT (2022-2026), which is a
+                partnership between Sukkur IBA University and NTNU Norway for quality assurance in higher education.</p>
+                <ul class='team-icon'>
+                    <li><a href='https://www.researchgate.net/profile/Sher-Daudpota' class='researchgate'>
+                        <i class="fas fa-flask"></i>
+                    </a></li>
+                    <li><a href='https://www.iba-suk.edu.pk/faculty/details/INS-0019' class='faculty'>
+                        <i class="fas fa-user-graduate"></i>
+                    </a></li>
+                    <li><a href='https://www.linkedin.com/in/sher-muhammad-daudpota-8ba7094b/' class='linkedin'>
+                        <i class='fab fa-linkedin'></i>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  
+  
+  
+  <div class="team-container">
+  <div class='col-sm-6 col-md-4 team-item' id="rimsha">
+    <img src='./../static/rimsha.png' alt='rimsha' class='team-img'>
+    <h3>Ramsha</h3>
+    <div class='team-info'>
+      <p>Team Leader</p>
+      <p>I am a final year student at Sukkur IBA. I am passionate about exploring the possibilities of machine
+        learning algorithms to solve complex real-world problems, such as natural language processing or image
+        recognition.</p>
+      <ul class='team-icon'>
+        <li><a href='www.twitter.com' class='twitter'>
+            <i class="fab fa-twitter"></i>
+          </a></li>
+        <li><a href='https://github.com/ramshajat' class='github'>
+            <i class='fab fa-github'></i>
+          </a></li>
+        <li><a href='https://www.linkedin.com/in/ramsha-ghulam-mustafa-675826194/' class='linkedin'>
+            <i class='fab fa-linkedin'></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class='col-sm-6 col-md-4 team-item' id="afzal">
+    <img src='./../static/afzal.png' alt='Afzal' class='team-img'>
+    <h3>Afzal</h3>
+    <div class='team-info'>
+      <p>Member</p>
+      <p>I am a computer science student. My expertise includes Data Science, Data Analytics, Machine Learning, MS
+        Excel, CUDA, Database Management: MySQL, PostgreSQL, MongoDB, Amazon EC2, Apache Cassandra, Hadoop</p>
+      <ul class='team-icon'>
+        <li><a href='www.twitter.com' class='twitter'>
+            <i class='fab fa-twitter'></i>
+          </a></li>
+        <li><a href='https://github.com/AfzalKamboh' class='github'>
+            <i class='fab fa-github'></i>
+          </a></li>
+        <li><a href='https://www.linkedin.com/in/afzal-kamboh011/' class='linkedin'>
+            <i class='fab fa-linkedin'></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class='col-sm-6 col-md-4 team-item' id="kiswa">
+    <img src='./../static/kiswa.png' alt='Kiswa' class='team-img'>
+    <h3>Kiswa</h3>
+    <div class='team-info'>
+      <p>Member</p>
+      <p>I am a final year student at Sukkur IBA. I have a passion for both English grammar and Mathematics. I enjoy
+        exploring the mathematical relationships between language and numbers, such as in cryptography or
+        linguistics.</p>
+      <ul class='team-icon'>
+        <li><a href='www.twitter.com' class='twitter'>
+            <i class='fab fa-twitter'></i>
+          </a></li>
+        <li><a href='https://github.com/kiswajan' class='github'>
+            <i class='fab fa-github'></i>
+          </a></li>
+        <li><a href='https://www.linkedin.com/in/kiswa/' class='twitter'>
+            <i class='fab fa-linkedin'></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  <footer>
+    <div class='footer-container'>
+      <div class='footer-links'>
+        <div class='footer-link-wrapper'>
+          <div class='footer-link-items'>
+            <h2>About Us</h2>
+            <a href="/works" class='linkhover' target="_parent">How it works</a>
+            <a href="/inventors" class='linkhover' target="_parent">Inventors</a>
+            <a href='/terms_of_services' class='linkhover' target="_parent">Terms of Service</a>
+          </div>
+          <div class='footer-link-items'>
+            <h2>Contact Us</h2>
+            <a href='contactus' class='linkhover' target="_parent">Contact</a>
+            <a href='support' class='linkhover' target="_parent">Support</a>
+          </div>
+        </div>
+        <div class='footer-link-wrapper'>
+          <div class='footer-link-items'>
+            <h2>Social Media</h2>
+            <a href='https://www.instagram.com/emotiondetection' class='linkhover'>Instagram    <i class='fab fa-instagram'></i></a>
+            <a href='https://www.facebook.com/the.emotional.detective' class='linkhover'>Facebook  <i class='fab fa-facebook-f'></i></a>
+            <a href='https://twitter.com/ThinkEmotions' class='linkhover'>Twitter  <i class='fab fa-twitter'></i></a>
+          </div>
+        </div>
+      </div>
+      <section class='social-media'>
+        <div class='social-media-wrap'>
+          <!-- <div class='footer-logo'>
+                <a href='/' class='social-logo'>
+                    <img src='public/logo.png' alt='emotion'>
+                </a>
+            </div> -->
+          <small class='website-rights'>Employee Emotion Detection © 2023</small>
+        </div>
+      </section>
+    </div>
+  </footer>
+</body>
+
+</html>

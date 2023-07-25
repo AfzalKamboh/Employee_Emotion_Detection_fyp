@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Emotion Data</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Emotion Data</h1>
+        <!-- Add Search Box and Button -->
+        <div class="input-group mb-3 mt-3">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search for user...">
+            <button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+        </div>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Emotion</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                {% for data in emotion_data %}
+                <tr>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.emotion }}</td>
+                    <td>{{ data.time }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- Add Download Record Button -->
+        <div class="mt-3">
+            <button class="btn btn-primary" id="downloadButton">Download Record as CSV</button>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JavaScript and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Add Libraries for CSV Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.5.0/papaparse.min.js"></script>
+    <!-- Add FileSaver.js for File Download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- Add Custom JavaScript for Search and Download Functionality -->
+    <script>
+        document.getElementById("searchButton").addEventListener("click", function () {
+            // Get the search input value
+            var searchText = document.getElementById("searchInput").value.toLowerCase();
+
+            // Get all table rows (data rows)
+            var rows = document.getElementById("tableBody").getElementsByTagName("tr");
+
+            // Loop through all rows and hide/show based on the search input
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = rows[i].getElementsByTagName("td");
+                var shouldDisplay = false;
+                for (var j = 0; j < rowData.length; j++) {
+                    var cellData = rowData[j].innerText.toLowerCase();
+                    if (cellData.indexOf(searchText) > -1) {
+                        shouldDisplay = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = shouldDisplay ? "" : "none";
+            }
+        });
+
+        document.getElementById("downloadButton").addEventListener("click", function () {
+            // Generate CSV and download
+            var rows = document.querySelectorAll("#tableBody tr");
+            var csvData = [];
+            
+            // Include the header row in the CSV data
+            var headerRow = ["User", "Emotion", "Timestamp"];
+            csvData.push(headerRow.join(","));
+
+            for (var i = 0; i < rows.length; i++) {
+                var rowData = [];
+                var cells = rows[i].querySelectorAll("td");
+                for (var j = 0; j < cells.length; j++) {
+                    rowData.push(cells[j].innerText);
+                }
+                csvData.push(rowData.join(","));
+            }
+            var csv = csvData.join("\n");
+            var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            saveAs(blob, "emotion_data.csv");
+        });
+    </script>
+</body>
+</html>

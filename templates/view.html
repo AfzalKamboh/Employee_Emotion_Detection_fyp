@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Details</title>
+  <!-- Add the Bootstrap CSS link here -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+  <div class="container mt-4">
+    <!-- Search Box -->
+    <header class="d-flex justify-content-between align-items-center bg-primary text-white p-3 rounded">
+      <h1>Registered Employees Information</h1>
+    </header>
+    <br>
+    <br>
+
+    <!-- Buttons for Download Records -->
+    <div class="mb-3">
+      <button class="btn btn-success" id="downloadBtn">Download Records</button>
+    </div>
+
+    <!-- CSV Table -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Designation</th>
+          <th>Company</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+
+      <!-- {'name': name, 'email': email, 'phone': phone, 'designation': designation, 'company': company } -->
+      <tbody>
+        {% for employee in employees %}
+        <tr>
+          <td>{{loop.index }}</td>
+          <td>{{employee['name']}}</td>
+          <td>{{employee['email']}}</td>
+          <td>{{employee['designation']}}</td>
+          <td>{{employee['company']}}</td>
+          <td>{{employee['phone']}}</td>
+        </tr>
+        {% endfor %}
+        <!-- Add more rows here as needed -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add the Bootstrap and JavaScript script links here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      // Function to generate and download the CSV file
+      function downloadCSV() {
+        const table = document.querySelector('table');
+        const rows = table.querySelectorAll('tr');
+        const data = [];
+
+        // Iterate through rows and columns to extract the data
+        for (const row of rows) {
+          const rowData = [];
+          const cols = row.querySelectorAll('td, th');
+          for (const col of cols) {
+            rowData.push(col.innerText);
+          }
+          data.push(rowData.join(','));
+        }
+
+        // Create a CSV file and trigger the download
+        const csv = data.join('\n');
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'employee_records.csv';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+
+      // Call the function to download the CSV file
+      downloadCSV();
+    });
+  </script>
+</body>
+</html>
