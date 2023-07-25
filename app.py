@@ -22,10 +22,10 @@ from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 
 
-GMAIL_CREDENTIALS_FILE = './client_secret_845112444690-47g01ekcsegu9brjfnd6b7v6i6fol378.apps.googleusercontent.com.json'
+GMAIL_CREDENTIALS_FILE = 'your own gmail API json file path'
 GMAIL_SCOPES = ['https://www.googleapis.com/auth/gmail.send']
-GMAIL_USER_ID = 'fyp12bscsf19@gmail.com'
-GMAIL_APP_PASSWORD = 'f2019f12'
+GMAIL_USER_ID = 'youremail@gmail.com'
+GMAIL_APP_PASSWORD = '********'
 
 
 # Emotion Frequency data (use the frequency calculated earlier)
