@@ -6,7 +6,7 @@ import base64 # pip install base64
 GMAIL_CREDENTIALS_FILE = 'insert your own gmail API json file'
 GMAIL_SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 GMAIL_USER_ID = 'youremail@gmail.com'
-GMAIL_APP_PASSWORD = 'f2019f12'
+GMAIL_APP_PASSWORD = '*********'
 
 app = Flask(__name__)
 
