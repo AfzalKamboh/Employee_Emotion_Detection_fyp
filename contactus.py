@@ -3,9 +3,9 @@ from google.oauth2 import service_account # pip install google-auth-oauthlib
 import googleapiclient.discovery # pip install google-api-python-client
 import base64 # pip install base64
 
-GMAIL_CREDENTIALS_FILE = './client_secret_845112444690-47g01ekcsegu9brjfnd6b7v6i6fol378.apps.googleusercontent.com.json'
+GMAIL_CREDENTIALS_FILE = 'insert your own gmail API json file'
 GMAIL_SCOPES = ['https://www.googleapis.com/auth/gmail.send']
-GMAIL_USER_ID = 'fyp12bscsf19@gmail.com'
+GMAIL_USER_ID = 'youremail@gmail.com'
 GMAIL_APP_PASSWORD = 'f2019f12'
 
 app = Flask(__name__)
